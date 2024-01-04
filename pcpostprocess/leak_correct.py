@@ -57,7 +57,7 @@ def get_QC_dict(QC, bounds={'Rseal': (10e8, 10e12), 'Cm': (1e-12, 1e-10),
 
 def get_leak_corrected(trace, currents, QC_filt, ramp_bounds):
     leak_corrected = {}
-    V = 1000*np.array(currents['voltages'])  # mV
+    V = 1000*np.array(trace.get_voltage())  # mV
     for row in trace.WELL_ID:
         for well in row:
             if well in QC_filt.keys():
